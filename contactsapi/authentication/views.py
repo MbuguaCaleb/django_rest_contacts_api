@@ -19,7 +19,7 @@ class RegisterView(GenericAPIView):
         if serializer.is_valid():
             # runs create method
             serializer.save()
-            return Response(serializer.data, status.HTTP_201_CREATE)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         # throwing error if the above fails
-        return Response(serializer.errors, status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
