@@ -2,6 +2,7 @@ import jwt
 from rest_framework import authentication, exceptions
 from django.conf import settings
 from django.contrib.auth.models import User
+from rest_framework.response import Response
 
 
 class JWTAuthentication(authentication.BaseAuthentication):
@@ -15,10 +16,13 @@ class JWTAuthentication(authentication.BaseAuthentication):
 
         # Token comes as a key value pair<bearer:token>
         # below code  decodes it .Utf-8 converts the data into a string
-        prefix, token = auth_data.decode('utf-8').split('')
+        prefix, token = auth_data.decode('utf-8').split(' ')
+      # print(token)
 
         try:
-            payload = jwt.decode(token, settings.JWT_SECRET_KEY)
+            payload = jwt.decode(
+                token, settings.JWT_SECRET_KEY, algorithms=["HS256"])
+            print(payload)
 
             user = User.objects.get(username=payload['username'])
 

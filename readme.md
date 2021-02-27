@@ -50,8 +50,16 @@ python3 manage.py startapp authentication
 **Migrations**
 
 ```
+(a)Run migrations
+
 python manage.py migrate
 
+Serialisers are run directly.
+There is no need to create a migration
+
+(b)Making migration when i am using a model
+
+python manage.py makemigrations
 ```
 
 **Developed by**
