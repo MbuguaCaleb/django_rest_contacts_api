@@ -60,6 +60,8 @@ There is no need to create a migration
 (b)Making migration when i am using a model
 
 python manage.py makemigrations
+
+pip install pyjwt
 ```
 
 **Developed by**

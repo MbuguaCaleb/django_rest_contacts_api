@@ -3,6 +3,7 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 from .serializers import ContactSerializer
 from rest_framework import permissions
 from .models import Contact
+from rest_framework.response import Response
 
 # Does creating and listing all
 
@@ -11,6 +12,7 @@ class ContactsList(ListCreateAPIView):
 
     serializer_class = ContactSerializer
     permission_classes = (permissions.IsAuthenticated,)
+
     # ListCreateAPIView Helps in creation and retrieving of the instance
     # These are methods from the parent class i am overriding
 
