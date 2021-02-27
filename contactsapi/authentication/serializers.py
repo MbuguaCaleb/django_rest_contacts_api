@@ -26,3 +26,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         return User.objects.create_user(**validated_data)
+
+
+# Serializer performs the Purpose of the Model
+# It also handles the validatioon
